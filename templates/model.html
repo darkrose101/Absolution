@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br/>
+
+    <h4>Hey you, kindly input your parameters below...</h4>
+    <br/>
+    <div class="shadow p-3 mb-5 bg-body rounded">
+        <form action="#", method="POST">
+            {{ form.hidden_tag() }}
+
+            {{ form.nitrogen.label(class='form-label') }}
+            {{ form.nitrogen(class='form-control') }}
+            <br/>
+
+            {{ form.phosphorous.label(class='form-label') }}
+            {{ form.phosphorous(class='form-control') }}
+            <br/>
+
+            {{ form.potassium.label(class='form-label') }}
+            {{ form.potassium(class='form-control') }}
+            <br/>
+
+            {{ form.temperature.label(class='form-label') }}
+            {{ form.temperature(class='form-control') }}
+            <br/>
+
+            {{ form.humidity.label(class='form-label') }}
+            {{ form.humidity(class='form-control') }}
+            <br/>
+
+            {{ form.soil_ph.label(class='form-label') }}
+            {{ form.soil_ph(class='form-control') }}
+            <br/>
+
+            {{ form.rainfall.label(class='form-label') }}
+            {{ form.rainfall(class='form-control') }}
+            <br/>
+
+            {{ form.submit(class='btn btn-warning') }}
+
+        </form>
+    </div>    
+
+{% endblock %}

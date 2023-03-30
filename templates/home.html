@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    Hey {{ usr }}, {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endfor %}
+
+    <br/>
+    
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, odit.</p>
+    <p>Now, if you wanna learn more about the model being used by us, click this: <a href="{{ url_for('model') }}">Model hub 😙</a></p>
+
+{% endblock %}

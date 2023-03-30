@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <br/>
+    {% if prediction %}
+        <h4>Hello farmer, your predicted crop is: <strong>{{ prediction }}! Good crop if you ask me😍</strong></h4>
+    {% else %}
+        <p>Kindly consult a programmer</p>
+
+    {% endif %}    
+    
+{% endblock %}
