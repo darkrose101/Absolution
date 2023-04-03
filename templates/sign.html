@@ -100,12 +100,18 @@
 
                             {{ form.name.label(class='form-label') }}
                             {{ form.name(class='form-control')}}
+                            <br/>
 
                             {{ form.email.label(class='form-label') }}
                             {{ form.email(class='form-control')}}
+                            <br/>
 
                             {{ form.password.label(class='form-label') }}
                             {{ form.password(class='form-control') }}
+                            <br/>
+
+                            {{ form.password2.label(class='form-label') }}
+                            {{ form.password2(class='form-control') }}
 
                           <br/>
                           <div class="text-center pt-1 mb-5 pb-1">
@@ -114,7 +120,7 @@
                           </div>
                           <br/>
                           {% for user in all %}
-                            <strong>{{ user.id }} - {{ user.name }} - {{ user.password }} - {{ user.email }} <br/></strong>
+                            <strong>{{ user.id }} - <a href="{{ url_for('update', id=user.id)}}">{{user.name }}</a> - {{ user.email }} - {{ user.password }} <br/></strong>
                           {% endfor %}
                         </form>
                           <div class="d-flex align-items-center justify-content-center pb-4">

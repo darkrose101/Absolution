@@ -43,6 +43,12 @@
       </div>
     </div>
   </nav>
+  {% for message in get_flashed_messages() %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    Hey {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
     <section class="pb-4">
         <div class="bg-white border rounded-5">
           
@@ -85,39 +91,36 @@
                           <h4 class="mt-1 mb-5 pb-1">We are The Blue Lotus Team</h4>
                         </div>
       
-                        <form>
-                          <p>Please login to your account😍</p>
+                        <form method="POST">
+                          <p>Make Updates...</p>
       
-                          <div class="form-outline mb-4">
-                            <input type="email" id="form2Example11" class="form-control" placeholder="Email address" >
-                            <label class="form-label" for="form2Example11" style="margin-left: 0px;"></label>
-                          <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 66.4px;"></div><div class="form-notch-trailing"></div></div></div>
-      
-                          <div class="form-outline mb-4">
-                            <input type="password" id="form2Example22" class="form-control" placeholder="password">
-                            <label class="form-label" for="form2Example22" style="margin-left: 0px;"></label>
-                          <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64.8px;"></div><div class="form-notch-trailing"></div></div></div>
+                          <br/>
+                          <form action="{{ url_for('update', id=user.id)}}" method="POST">
+                            {{ form.hidden_tag() }}
+
+                            {{ form.name.label(class='form-label') }}
+                            {{ form.name(class='form-control', value=user.name)}}
+
+                            {{ form.email.label(class='form-label') }}
+                            {{ form.email(class='form-control', value=user.email)}}
+
+                            {{ form.password.label(class='form-label') }}
+                            {{ form.password(class='form-control', value=user.password) }}
+
+                          <br/>
                           <div class="text-center pt-1 mb-5 pb-1">
-                            {{ form.submit(class='btn btn-warning')}}
-                            <br/>
-                          <a class="text-muted" href="#">Forgot password?</a>
+                                {{ form.submit(class='btn btn-warning')}}
+                                <a href="{{ url_for('delete', id=id)}}" class="btn btn-danger">Delete User</a>
+                                <br/>
                           </div>
-                          <div class="text-center pt-1 mb-5 pb-1">
-                            <a href="{{ url_for('home') }}">
-                            <button class="btn btn-warning btn-block fa-lg gradient-custom-2 mb-3" type="button">Log
-                              in</button>
-                            </a>
-                            <br>
-                            <a class="text-muted" href="#!">Forgot password?</a>
-                          </div>
-                          <div class="text-center pt-1 mb-5 pb-1">
-                            {{ form.submit(class='btn btn-warning')}}
-                            <br/>
-                          <a class="text-muted" href="#!">Forgot password?</a>
-                          </div>
+                          <br/>
+                          {% for user in all %}
+                            <strong>{{ user.id }} - {{ user.name }} - {{ user.password }} - {{ user.email }} <br/></strong>
+                          {% endfor %}
+                        </form>
                           <div class="d-flex align-items-center justify-content-center pb-4">
-                            <p class="mb-0 me-2">Don't have an account?</p>
-                            <button type="button" class="btn btn-outline-danger">Create new</button>
+                            <p class="mb-0 me-2">Already have an account?</p>
+                            <button type="button" class="btn btn-outline-danger"><a href="{{ url_for('authenticate') }}">Log in!</a></button>
                           </div>
       
                         </form>
@@ -145,10 +148,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-

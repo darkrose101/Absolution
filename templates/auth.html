@@ -45,7 +45,7 @@
   </nav>
   {% for message in get_flashed_messages() %}
   <div class="alert alert-success alert-dismissible fade show" role="alert">
-    Hey {{ usr }}, {{ message }}
+    Hey {{ message }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   {% endfor %}
@@ -91,31 +91,27 @@
                           <h4 class="mt-1 mb-5 pb-1">We are The Blue Lotus Team</h4>
                         </div>
                         <form method="POST">
-                          <p>Please login to your account😍</p>
+                          <p>Log in...</p>
+      
                           <br/>
-                          <form method="post">
+                          <form method="POST">
                             {{ form.hidden_tag() }}
 
                             {{ form.email.label(class='form-label') }}
                             {{ form.email(class='form-control')}}
                             <br/>
+
                             {{ form.password.label(class='form-label') }}
                             {{ form.password(class='form-control') }}
+                            <br/>
 
-                          <br/>
                           <div class="text-center pt-1 mb-5 pb-1">
-                                {{ form.submit(class='btn btn-warning')}}
-                                <br/>
-                              <a class="text-muted" href="#!">Forgot password?</a>
+                            {{ form.submit(class='btn btn-warning')}}
+                            <br/>
                           </div>
+                          <br/>
                         </form>
-                          <div class="d-flex align-items-center justify-content-center pb-4">
-                            <p class="mb-0 me-2">Don't have an account?</p>
-                            <button type="button" class="btn btn-outline-danger"><a href="{{ url_for('sign') }}">Create new!</a></button>
-                          </div>
-      
                         </form>
-      
                       </div>
                     </div>
                     <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
@@ -136,6 +132,3 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-
-</body>
-</html>
