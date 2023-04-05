@@ -1,0 +1,92 @@
+	body{
+     margin: 0;
+    padding:0;
+    background-image: url('http://thekitemap.com/images/feedback-img.jpg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			animation: changeBackground 120s infinite;
+    font-family: Arial, sans-serif;
+		}
+
+		@keyframes changeBackground {
+			0% {background-image: url('http://thekitemap.com/images/feedback-img.jpg');}
+			50% {background-image: url('http://thekitemap.com/images/feedback-img.jpg');}
+			100% {background-image: url('http://thekitemap.com/images/feedback-img.jpg');}
+		}
+
+	#audio-player	audio {
+			width: 200px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 40px;
+      padding: 10px;
+		}
+
+#audio-player{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+		.navbar {
+			background-color: #333;
+			overflow: hidden;
+		}
+		.navbar a {
+			float: left;
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 20px;
+			text-decoration: none;
+		}
+		.navbar a:hover {
+			background-color: #111;
+      color: aqua;
+		}
+
+		.dropdown {
+			float: left;
+			overflow: hidden;
+		}
+		.dropdown .dropbtn {
+			font-size: 16px;
+			border: none;
+			outline: none;
+			color: white;
+			padding: 14px 20px;
+			background-color: inherit;
+			font-family: inherit;
+			margin: 0;
+		}
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f9f9f9;
+			width: 200px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+		.dropdown-content a {
+			float: none;
+			display: block;
+      color: #0078;
+			text-align: left;
+			padding: 12px 16px;
+			text-decoration: none;
+		}
+		.dropdown-content a:hover {
+			background-color: #ddd;
+		}
+		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+.navbar a, .dropdown {
+			width: calc(100% / 8); 
+		}
+
+.dropbtn:hover{
+  color: aqua;
+}

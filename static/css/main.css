@@ -1,0 +1,9 @@
+body{
+    text-emphasis: None;
+    text-align: center;
+    font: 1em sans-serif;
+    font-family: sans-serif;
+    background-image: url('../images/th (1).webp');
+    image-rendering: crisp-edges;
+    background-repeat: no-repeat;
+}

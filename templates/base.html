@@ -24,15 +24,20 @@
               <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home Page</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{{ url_for('model') }}">AI Model</a>
+              <a class="nav-link active" href="{{ url_for('model') }}">Values</a>
             </li>
+            {% if current_user.id == 1 or current_user.id == 5 %}
+              <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('admin') }}">Admin</a>
+              </li>
+            {% endif %}  
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Dropdown
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{{ url_for('authenticate') }}">Change user</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('authenticate') }}">Log out</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('logout') }}">Change user</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('logout') }}">Log out</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="{{ url_for('about') }}">About</a></li>
               </ul>

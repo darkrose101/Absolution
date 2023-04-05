@@ -3,11 +3,11 @@
 
 {% block content %}
     <br/>
-    <h4>Hello, been a while, your parameters are: {{ a }}, {{ b }}, {{ c }}, {{ d }}, {{ e }}, {{ f }}, {{ h }}</h4>
+    <p>Your parameters are: {{ a }}, {{ b }}, {{ c }}, {{ d }}, {{ e }}, {{ f }}, {{ h }}</p>
     <p>Your predicted crop is:</p>
     {% if prediction %}
         
-        <h4>Hello farmer, your predicted crop is: <strong>{{ prediction }}!</strong>...Good crop if you ask me😍</h4>
+        <center><h6><strong>{{ prediction }}!</strong>...Good crop if you ask me😍</h6></center>
     {% else %}
         <p>Kindly consult a programmer</p>
 

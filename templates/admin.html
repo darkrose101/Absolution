@@ -22,15 +22,20 @@
             <a class="nav-link active" aria-current="page" href="{{ url_for('home')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('model') }}">AI Model</a>
+            <a class="nav-link" href="{{ url_for('model') }}">Values</a>
           </li>
+          {% if current_user.id == 1%}
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('admin') }}">Admin</a>
+            </li>
+          {% endif %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{{ url_for('authenticate') }}">Change user</a></li>
-              <li><a class="dropdown-item" href="#">Log out</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('logout') }}">Log out</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="{{ url_for('about') }}">About</a></li>
             </ul>
@@ -43,6 +48,12 @@
       </div>
     </div>
   </nav>
+  {% for message in get_flashed_messages() %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    Hey {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
     <section class="pb-4">
         <div class="bg-white border rounded-5">
           
@@ -82,32 +93,19 @@
       
                         <div class="text-center">
                           <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo">
-                          <h4 class="mt-1 mb-5 pb-1">We are The Blue Lotus Team</h4>
+                          <h4 class="mt-1 mb-5 pb-1">ADMINSTRATOR DASHBOARD❤</h4>
                         </div>
-      
-                        <form>
-                          <p>Please login to your account😍</p>
-      
-                          <div class="form-outline mb-4">
-                            <input type="email" id="form2Example11" class="form-control" placeholder="Email address" >
-                            <label class="form-label" for="form2Example11" style="margin-left: 0px;"></label>
-                          <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 66.4px;"></div><div class="form-notch-trailing"></div></div></div>
-      
-                          <div class="form-outline mb-4">
-                            <input type="password" id="form2Example22" class="form-control" placeholder="password">
-                            <label class="form-label" for="form2Example22" style="margin-left: 0px;"></label>
-                          <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64.8px;"></div><div class="form-notch-trailing"></div></div></div>
-                          <div class="text-center pt-1 mb-5 pb-1">
-                            {{ form.submit(class='btn btn-warning')}}
-                            <br/>
-                          <a class="text-muted" href="#">Forgot password?</a>
-                          </div>
+                          <p class="d-flex align-items-center justify-content-center pb-4">Welcome Lawrence!Feel free to make changes🙂💥</p>
+                          <br/>
+                          <p>Current registered users:</p>
+                          {% for user in all %}
+                           <strong>{{ user.id }} - <a href="{{ url_for('update', id=user.id)}}">{{user.name }}</a> - {{ user.email }}<br/></strong>
+                          {% endfor %}
+                          <br/>
                           <div class="d-flex align-items-center justify-content-center pb-4">
-                            <p class="mb-0 me-2">Don't have an account?</p>
-                            <button type="button" class="btn btn-outline-danger">Create new</button>
+                            <button type="button" class="btn btn-outline-success"><a href="{{ url_for('logout') }}">Done For Today!</a></button>
                           </div>
       
-                        </form>
       
                       </div>
                     </div>
@@ -132,10 +130,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
